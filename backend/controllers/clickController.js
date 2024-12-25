@@ -439,7 +439,6 @@ async function getClicksByCountry (req, res){
         // Check if any clicks are found
         if (Object.keys(countryCounts).length === 0) {
             return res.status(404).json({
-                error: true,
                 message: 'No clicks found for the given URL',
             });
         }
