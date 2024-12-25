@@ -11,7 +11,7 @@ async function extractData(url) {
         const title = $('title').text() || 'No title found';
 
         const favicon = $('link[rel="icon"]').attr('href');
-        let logo = favicon || 'No logo found';
+        let logo = favicon || '';
 
         if (logo && !logo.startsWith('http')) {
             const baseUrl = new URL(url);
