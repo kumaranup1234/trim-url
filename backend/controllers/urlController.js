@@ -6,14 +6,12 @@ const { generateQRCodeForUrl } = require("../utils/generateQrCode");
 const { extractData } = require("../utils/extractMetaData");
 
 
-
-
 async function createShortUrlAnon(req, res){
     const { url } = req.body;
     if (!url) {
         return res.status(400).json({ error: true, message: 'URL is required' });
     }
-    const shortId = shortid.generate(); // Generate a short ID
+    const shortId = shortid.generate();
 
     try {
         const existingUrl = await Url.findOne({ originalUrl: url});
@@ -72,6 +70,7 @@ async function createShortUrl(req, res) {
 
         const qrCode = await generateQRCodeForUrl(shortId);
         const { title, logo } = await extractData(url);
+
 
         // Create a new shortened URL entry
         const newUrl = new Url({

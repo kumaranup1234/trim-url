@@ -311,7 +311,6 @@ async function getUserProfile(req, res){
 }
 
 // resetPassword
-
 async function resetPassword(req, res) {
     const userId = req.user._id;
     const { currentPassword, newPassword } = req.body;

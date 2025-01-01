@@ -40,6 +40,10 @@ const UrlSchema = new mongoose.Schema({
         type: Date,
         default: null,
     },
+    isOneLink: {
+        type: Boolean,
+        default: false
+    },
 });
 
 UrlSchema.methods.incrementClick = async function () {
